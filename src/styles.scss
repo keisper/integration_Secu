@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+// @import "assets/bootstrap/scss/bootstrap.scss" layer(bootstrap-rebooot);
+
+@font-face {
+    font-family: 'poppins';
+    src: url('assets/font/Poppins-Regular.ttf') format('truetype');
+    /* Ajoutez d'autres formats de police si nécessaire */
+  }
+  @font-face {
+    font-family: 'poppins medium';
+    src: url('assets/font/Poppins-Medium.ttf') format('truetype');
+    /* Ajoutez d'autres formats de police si nécessaire */
+  }
+  @font-face {
+    font-family: 'poppins bold';
+    src: url('assets/font/Poppins-Bold.ttf') format('truetype');
+    /* Ajoutez d'autres formats de police si nécessaire */
+  }
+
+  *{
+    scroll-behavior: smooth;
+    font-family: "poppins";
+  }
+  
+
+
+  
+$font-family-sans-serif :"poppins";
+$font-family-monospace : "poppins";
+$blue:    #107EC2 !default;
+$indigo:  #312783 !default;
+$purple:  #74226B !default;
+$pink:    #d63384 !default;
+$red:     #CC151A !default;
+$yellow:  #FDD300 !default;
+$green:   #007759 !default;
+
+/* Order */
+@layer reset, primeng;
+
+/* Reset CSS */
+@layer reset {
+    button{
+        &{
+        }
+        // &:focus{
+        //     box-shadow: none;
+        //     color: #ffffff;
+        //     background-color: #107ec2;
+        // }
+    }
+    input {
+        /* CSS to Reset */
+        &{
+          border: #CC151A;
+        }
+        &:focus{
+          outline: none;
+        }
+    }
+}
+ .p-inputtext{
+  border: solid 1px #e5e7eb;
+  height: 37.3px;
+  width: 100%;
+}
+button,span{
+  font-size: small;
+}
+.p-element{
+  font-size: small;
+}
+.p-inputtext:focus{
+  outline: none;
+  box-shadow: none;
+}
+.p-dropdown-items {
+  padding-left: 0;
+}
+.p-dropdown-label{
+  border-right: none;
+}
+.p-button{
+  margin-left: 10px;
+  font-size: small;
+  height: 37.3px;
+  width: 155px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  color: #ffffff;
+  background-color: #107EC2;
+  border-radius: 5px;
+}

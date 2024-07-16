@@ -1,0 +1,48 @@
+.container-fluid{
+    background-color: rgba(16, 126, 194, 0.1);
+    color: #107ec2;
+    width: 97vw;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding: 0% 5% 0% 5%;
+    button{
+        height: 40%;
+        padding: 8px 22px;
+        border: none;
+        border-radius: 5px;
+        background-color: #107ec200;
+        margin-right: 2px;
+    }
+    button:hover{
+        color: #ffffff;
+        background-color: hsla(203, 85%, 41%, 0.06);
+    }
+    .img_container{
+        img {
+            height: 100%; /* L'image prendra 100% de la hauteur de son conteneur parent */
+            position: absolute; /* Positionnement absolu pour remplir le conteneur parent */
+            bottom: 0; /* Alignement en haut du conteneur parent */
+            right: 70px; /* Alignement à gauche du conteneur parent */
+        }
+    }
+    .text{
+        display: flex;
+        justify-content: center;
+
+    }
+
+    h6{
+        margin: 0;
+        font-size: small;
+    }
+}
+@media only screen and (max-width: 767px) {
+    /* Styles spécifiques pour les téléphones */
+    .container-fluid button{
+        margin-right: 5px;
+        padding: 0;
+    }
+}

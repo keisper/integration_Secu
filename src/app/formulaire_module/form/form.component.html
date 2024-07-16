@@ -1,0 +1,146 @@
+
+    <div class="header">
+    <form-header></form-header>
+    </div>
+    <div class="container-fluid body_container">
+
+
+        <h3>Formulaire Certificat de Scolarité </h3>
+        <div class="flex justify-content-center">
+            <form>
+            
+            @switch (stage) {
+                @case (1) {    <div class="row">
+                    <div class="mb-3 col-12 col-md-6" style="text-align: left;">
+               <label for="nomInput" class="form-label">Nom*</label>
+               <input pInputText type="text" class="form-control" id="nomInput" aria-describedby="nomHelp" [(ngModel)]="value.nom" name="nom">
+               <!-- <div id="nomHelp" class="form-text">Entrez votre nom</div> -->
+           </div>
+           <div class="mb-3 col-12 col-md-6" style="text-align: left;">
+               <label for="prenomInput" class="form-label">Prenom</label>
+               <input pInputText type="text" class="form-control" id="prenomInput" aria-describedby="prenomHelp" [(ngModel)]="value.prenom" name="prenom">
+               <!-- <div id="prenomHelp" class="form-text">Entrez votre prenom</div> -->
+           </div>
+               </div>
+          
+           <div class="row">
+           <div class="mb-3 col-6 " style="text-align: left;">
+               <label for="dateInput" class="form-label">Date de Naissance*</label>
+               <p-calendar [maxDate]="maxDate" id="dateInput" aria-describedby="dateHelp" [(ngModel)]="value.dateNaissance" name="dateNaissance" [(ngModel)]="value.dateNaissance" [iconDisplay]="'input'" [showIcon]="true"></p-calendar>
+               <!-- <p-calendar id="dateInput" aria-describedby="dateHelp" [(ngModel)]="value.dateNaissance" name="dateNaissance"></p-calendar> -->
+               <!-- <input type="date" class="form-control" id="dateInput" aria-describedby="dateHelp" [(ngModel)]="value.dateNaissance" name="dateNaissance"> -->
+               <!-- <div id="dateNaissanceHelp" class="form-text">Entrez votre date de Naissance</div> -->
+           </div>
+           <div class="mb-3 col-6 " style="text-align: left;">
+               <label for="lieuNaissanceInput" class="form-label">Lieu de Naissance*</label>
+               <input pInputText type="text" class="form-control" id="lieuNaissanceInput" aria-describedby="lieuNaissanceHelp" [(ngModel)]="value.lieuNaissance" name="lieuNaissance">
+               <!-- <div id="lieuNaissanceHelp" class="form-text">Entrez votre lieu de Naissance</div> -->
+           </div>
+           </div>
+           <div class="mb-3 " style="text-align: left;">
+               <label for="pereInput" class="form-label">Nom du Pere</label>
+               <input pInputText type="text" class="form-control" id="pereInput" aria-describedby="faterHelp" [(ngModel)]="value.pere" name="pere">
+               <!-- <div id="pereHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+           </div>
+           <div class="mb-3 " style="text-align: left;">
+               <label for="mereInput" class="form-label">Nom de la Mere*</label>
+               <input pInputText type="text" class="form-control" id="mereInput" aria-describedby="mereHelp" [(ngModel)]="value.mere" name="mere">
+               <!-- <div id="mereHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+           </div>
+           
+          
+           <div class="mt-5  flex justify-content-center"  >
+               <div class=" button_direction flex justify-content-center">
+                   <button (click)="next()" type="button" class="next btn btn-primary">Suivant</button>
+               </div>
+           </div>
+                }
+                @case (2) {    
+                   
+           <div class="mb-3 " style="text-align: left;">
+               <label for="pereInput" class="form-label">Matricule*</label>
+               <input pInputText type="text" class="form-control" id="pereInput"  aria-describedby="faterHelp" [(ngModel)]="value.matricule" name="matricule">
+               <!-- <div id="pereHelp" class="form-text">Entrez votre matricule</div> -->
+           </div>
+           <div class="row">
+            <div class="mb-3 col-12 col-md-5" style="text-align: left;">
+                <label for="mereInput" class="form-label">Filiere*</label><br>
+                <p-dropdown [options]="filiere" [(ngModel)]="value.filiere" optionLabel="nom" [showClear]="true" placeholder="Selectionner la filiere" name="filiere"></p-dropdown>
+            </div>
+                <div class="mb-3 col-12 col-md-7" style="text-align: left;">
+                <label for="lieuNaissanceInput" class="form-label">Annee academique*</label><br>
+                <p-inputNumber [(ngModel)]="value.anneeAcademique" mode="decimal" min="2016" [max]="maxDate?.getFullYear()" inputId="withoutgrouping" [useGrouping]="false" name="anneeAcademique"></p-inputNumber>   / {{value?.anneeAcademique + 1}} 
+            
+            <!-- <p-inputNumber pInputText type="num" class="form-control" id="lieuNaissanceInput" aria-describedby="lieuNaissanceHelp" [(ngModel)]="value.lieuNaissance" name="lieuNaissance"></p-inputNumber> -->
+            <!-- <div id="lieuNaissanceHelp" class="form-text">Entrez l'annee d'etude que vous souhaiter imprimer</div> -->
+                </div>
+           </div>
+           
+           
+           
+           <div class="mt-5  flex justify-content-between"  >
+               <div class=" flex button_direction" style="display: flex;justify-content: space-between;">
+                   <button (click)="stage=stage-1" type="button" class="back btn btn-primary">Rentrer</button>
+                   <button (click)="send()" type="button" class="terminer btn btn-primary">Terminer</button>
+               </div>
+           </div>
+                }}
+            </form>
+
+            
+        </div>
+
+        <div class="footer_container">
+            <footer color="blue" ></footer>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- <p-button (click)="showDialog()" icon="pi pi-external-link" label="Show"></p-button> -->
+    <p-dialog header="Header" [(visible)]="visible" closable="false" [modal]="true" [style]="{ width: '50rem' }" [breakpoints]="{ '1440px': '35vw','1000px': '65vw', '575px': '90vw' }">
+        <ng-template  pTemplate="header">
+            <div class="inline-flex align-items-center justify-content-center gap-2">
+                <img src="../../../assets/images/Saint Jean ingenieur.png" height="30px" alt="ISJ">
+            </div>
+        </ng-template>
+        <div class="description_validation">
+            <span>
+                <h6>Nom : </h6> {{value.nom}} <br>
+            </span>
+            <span>
+                <h6>Prenom : </h6> {{value.prenom}} <br>
+            </span>
+            <span>
+                <h6>Date de Naissance : </h6> {{value.dateNaissance}} <br>
+            </span>
+            <span>
+                <h6>Lieu de Naissance : </h6> {{value.lieuNaissance}} <br>
+            </span>
+            <span>
+                <h6>Nom du Pere : </h6> {{value.pere}} <br>
+            </span>
+            <span>
+                <h6>Nom de la Mere : </h6> {{value.mere}} <br>
+            </span>
+            <span>
+                <h6>Matricule : </h6> {{value.matricule}} <br>
+            </span>
+            <span>
+                <h6>Filiere : </h6> {{value?.filiere?.nom}} <br>
+            </span>
+            <span>
+                <h6>Annee Academique : </h6> {{value.anneeAcademique}} / {{value.anneeAcademique+1}} <br>
+            </span>
+        </div>
+        <ng-template pTemplate="footer">
+            <div class="footer_modal"> 
+            <button (click)="visible=false" class="button_modal btn btn-primary">Annuler</button>
+            <!-- <button  class="button_modal terminer btn btn-primary ">Valider</button> -->
+            <p-button  class="edit" [loading]="loading" (onClick)="load()"><span [hidden]="loading">Valider</span></p-button>
+
+            </div>
+        </ng-template>
+</p-dialog>
