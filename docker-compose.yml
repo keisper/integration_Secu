@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Pull the latest changes
-git pull
-
-# Build and Deploy with Docker Compose
-docker-compose down
-docker-compose build
-docker-compose up -d
